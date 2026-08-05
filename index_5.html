@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tom Whitfield — Apps</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:      #00875A;
+      --green-dark: #005C3C;
+      --green-light:#E3F5EF;
+      --black:      #0D0D0D;
+      --grey-3:     #8E8E93;
+      --grey-5:     #F2F2F7;
+      --white:      #FFFFFF;
+      --border:     #E5E5EA;
+      --card-shadow: 0 2px 12px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
+      --card-shadow-lg: 0 8px 30px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06);
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+
+    html, body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--grey-5);
+      color: var(--black);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%);
+      padding: 60px 24px 48px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.85);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 5px 12px;
+      border-radius: 99px;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* App grid */
+    .apps {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    /* App card */
+    .app-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--card-shadow-lg);
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .app-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.13);
+    }
+    .app-card:active { transform: scale(0.98); }
+
+    .app-card-header {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%);
+      padding: 28px 24px 22px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .app-icon {
+      font-size: 2rem;
+      width: 56px; height: 56px;
+      background: rgba(255,255,255,0.18);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .app-title { font-size: 1.25rem; font-weight: 800; color: #fff; letter-spacing: -0.02em; }
+    .app-tagline { font-size: 0.72rem; color: rgba(255,255,255,0.7); margin-top: 3px; }
+
+    .app-card-body { padding: 20px 22px 22px; flex: 1; display: flex; flex-direction: column; }
+    .app-desc {
+      font-size: 0.82rem;
+      color: var(--grey-3);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 18px;
+    }
+    .app-desc strong { color: var(--black); }
+
+    .app-features {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+    .app-feature {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      color: var(--black);
+      font-weight: 500;
+    }
+    .app-feature-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+    }
+
+    .app-cta {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      background: linear-gradient(135deg, var(--green-dark), var(--green));
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      border-radius: 10px;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      transition: opacity 0.15s;
+    }
+    .app-cta:hover { opacity: 0.9; }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 20px 24px 40px;
+      font-size: 0.65rem;
+      color: var(--grey-3);
+      line-height: 1.6;
+    }
+    .footer a { color: var(--green); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-badge">Built with Claude AI</div>
+  <h1>TW Apps</h1>
+  <p>Personal projects to help develop my understanding of engineering and AI</p>
+</div>
+
+<div class="apps">
+
+  <!-- Grow Your Own -->
+  <a class="app-card" href="./mobile.html">
+    <div class="app-card-header">
+      <div class="app-icon">🌱</div>
+      <div>
+        <div class="app-title">Grow Your Own</div>
+        <div class="app-tagline">Make your money work harder</div>
+      </div>
+    </div>
+    <div class="app-card-body">
+      <div class="app-desc">
+        You have a lump sum — but what's the best thing to do with it? <strong>Grow Your Own</strong> compares four options side by side across the same time horizon, using live rate data fetched daily.
+      </div>
+      <div class="app-features">
+        <div class="app-feature"><div class="app-feature-dot"></div>Pay off mortgage vs keep in savings vs invest vs pension</div>
+        <div class="app-feature"><div class="app-feature-dot"></div>Live mortgage rates and best savings accounts updated daily</div>
+        <div class="app-feature"><div class="app-feature-dot"></div>De-risked pension projections from DWP default fund data</div>
+        <div class="app-feature"><div class="app-feature-dot"></div>Taxed and untaxed comparison toggle</div>
+      </div>
+      <div class="app-cta">Open app →</div>
+    </div>
+  </a>
+
+  <!-- Family Friendly -->
+  <a class="app-card" href="https://whitfieldtom-creator.github.io/kids-welcome/">
+    <div class="app-card-header">
+      <div class="app-icon">👨‍👩‍👧‍👦</div>
+      <div>
+        <div class="app-title">Family Friendly</div>
+        <div class="app-tagline">Find the best spots for families in London</div>
+      </div>
+    </div>
+    <div class="app-card-body">
+      <div class="app-desc">
+        AI-powered analysis of Google reviews to score restaurants and attractions on how family-friendly they really are — from kids' menus and high chairs to buggy access and changing facilities.
+      </div>
+      <div class="app-features">
+        <div class="app-feature"><div class="app-feature-dot"></div>Restaurants and attractions across London areas</div>
+        <div class="app-feature"><div class="app-feature-dot"></div>AI scores based on real Google reviews via Outscraper</div>
+        <div class="app-feature"><div class="app-feature-dot"></div>Agentic website checks for kids' menus and exhibitions</div>
+        <div class="app-feature"><div class="app-feature-dot"></div>Confidence ratings and AI transparency controls</div>
+      </div>
+      <div class="app-cta">Open app →</div>
+    </div>
+  </a>
+
+</div>
+
+<div class="footer">
+  Built by Tom Whitfield using <a href="https://claude.ai" target="_blank">Claude AI</a> · Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a>
+</div>
+
+</body>
+</html>
